@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>足球圈子-登录</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+  <header>足球圈子-登录</header>
+  <div class="form">
+  	<input id="uid" type="text" placeholder="手机号" />
+  	<input id="pwds" type="password" placeholder="密码" />  	
+  	<div class="links">
+  		<a class="reg" href="register.html">注册</a>
+  		<a class="pwd" href="#">忘记密码？</a>
+  	</div>
+  	<button class="btn" type="button">提          交</button>
+  	<p class="tenp"></p>
+  </div>
+  <script src="js/zepto.min.js"></script>
+  <script>
+  	$(".btn").on("tap",function(evt){//用click的话得引用jquery
+  		var e=window.event||evt;
+  		e.preventDefault();
+  		var uid=$("#uid").val();
+  		var pwds=$("#pwds").val();
+  		var userInfo=window.localStorage;
+  		var regName=/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
+		var regPwd=/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/;  		
+  		
+  		if(regName.test(uid) && regPwd.test(pwds)){//手机号、密码都验证成功
+  			$.ajax({
+  				url:"http://localhost:8080/Proxy/FootBall/user/json/login.do",
+  				data:{"loginname":uid,"password":pwds},
+  				success:function(d){
+  					console.log(d);
+  					var data=JSON.parse(d);
+  					/*console.log(data.data.loginuser.loginname);
+  					userInfo.setItem("loginStatus","1");
+  					userInfo.setItem("loginuser",JSON.stringify(data.data.loginuser));  					 
+  					console.log(userInfo.getItem("loginuser"));
+  					console.log(userInfo.getItem("id"));*/
+  					
+  					if(data.ecode==200){
+  						window.location.href="index.html";
+  					}else{
+  						$(".tenp").html(data.errorinfo);
+  					}
+  				}
+  			
+  			})
+  		}else{
+  			
+  		}
+  	})
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

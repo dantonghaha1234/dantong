@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,
+			 user-scalable=no" name="viewport" />
+		<title>足球圈子-注册</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/common.css" >
+	</head>
+	<body>
+		 <header>足球圈子-注册</header>
+		  <div class="form">
+		  	<input id="uid1" type="text" placeholder="手机号" />
+		  	<p class="secondp"></p><p class="pfirst"></p>
+		  	<input id="pwds1" type="password" placeholder="密码" />
+		  	<p class="thirdp"></p><p class="fourp"></p>
+		  	<input id="nickName" class="inputs" type="text" placeholder="昵称" />
+		  	<p class="fivep"></p><p class="sixp"></p>
+		  	<p class="sevenp"></p>
+		  	<button class="btn btn1" type="button">提          交</button>
+		  </div>
+	</body>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$(function(){
+			var uid1=null;
+			var pwds1=null;
+			var nickName=null;
+			var checkname=true;
+			var checkpwd=true;
+			var checknick=true;
+			var regName=/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
+			var regPwd=/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/;
+			$("#uid1").on("blur",function(){
+				uid1=$("#uid1").val();
+				if(regName.test(uid1)){
+					$(".secondp").html("用户名合法");
+					$(".pfirst").html("");
+					return;
+				}else{
+					$(".pfirst").html("用戶名不合法");
+					$(".secondp").html("");
+					return checkname=false;
+				}
+			})
+			$("#pwds1").on("blur",function(){
+				pwds1=$("#pwds1").val();
+				if(regPwd.test(pwds1)){
+					$(".thirdp").html("密码合法");
+					$(".fourp").html("");
+					return;
+				}else{
+					$(".fourp").html("密码不合法");
+					$(".thirdp").html("");
+					return checkpwd=false;
+				}
+			})
+			$("#nickName").on("blur",function(){
+				nickName=$("#nickName").val();
+				if(nickName!=""){
+					$(".fivep").html("昵称合法");
+					$(".sixp").html("");
+					return;
+				}else{
+					$(".sixp").html("昵称不能为空");
+					$(".fivep").html("");
+					return checknick=false;
+				}
+			})
+				
+		$(".btn1").on("tap",function(evt){
+			var e=window.event||evt;
+			e.preventDefault();
+			/*var uid1=$("#uid1").val();
+			var pwds1=$("#pwds1").val();
+			var nickName=$("#nickName").val();
+			var regName=/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i;
+			var regPwd=/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/;*/
+			
+			/*if(regName.test(uid1)&&regPwd.test(pwds1)&&nickName!=""){*/
+			if(checkname && checkpwd && checknick){
+				$.ajax({
+					url:"http://localhost:8080/Proxy/FootBall/user/json/reg.do",
+					data:{"loginname":uid1,"password":pwds1,"nickname":nickName},
+					success:function(d){
+						console.log(d);
+						var data=JSON.parse(d);
+						if(data.ecode==500){
+							$(".sevenp").html(data.errorinfo);
+						}else{
+							alert("恭喜你注册成功");
+							window.location.href="login.html";
+						} 
+					}
+				})
+			}
+			
+		})
+			
+			
+			
+			
+			
+			
+			
+		
+		
+		
+		
+})
+		
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

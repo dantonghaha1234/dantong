@@ -1,0 +1,149 @@
+html{
+	height: 100%;
+}
+body{
+	width: 100%;
+	max-width: 640px;
+	margin: 0 auto;
+}
+header{
+	width: 100%;
+	height: 37px;
+	text-align: center;
+	font-size: 17px;
+	line-height: 37px;
+	color: #fff;
+	background:#0F91C5;
+}
+.form{
+	margin: 0 30px;
+	position: relative;
+}
+.form input{
+	margin-top: 27px;
+	width:100% ;
+	height: 33px;
+	line-height: 33px;
+	border-bottom: 1px solid #7f7f7f;
+	font-size: 14px;
+}
+.form input:nth-child(1){
+	margin-top: 9px;
+}
+.form .inputs{
+	margin-bottom: 45px;
+}
+.form .links{
+	width: 100%;
+	height: 65px;
+	line-height: 65px;
+}
+.form .links a{
+	color:#0F91C5 ;
+	text-decoration: underline;
+	font-size: 12px;
+}
+.form .links .reg{
+	float: left;
+}
+.form .links .pwd{
+	float: right;
+}
+.form .btn{
+	width: 100%;	
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	border: none;
+	border-radius: 3px;
+	background: #0F91C5;
+	color: #fff;
+	font-size: 17px;	
+}
+
+.form span{
+	display: inline-block;
+	height: 33px;
+	line-height: 33px;
+	width: 188px;
+	background: #0f91c5;
+	color: #fff;
+	border-radius: 3px;
+	text-align: center;
+}
+.getPwd{
+	position: relative;
+	margin-bottom: 35px;
+}
+.getPwd input{
+	margin-top: 27px;
+	width:100% ;
+	height: 33px;
+	line-height: 33px;
+	border-bottom: 1px solid #7f7f7f;
+	font-size: 14px;
+}
+.getPwd span{
+	position: absolute;
+	bottom: 2px;
+	right: 0;
+}
+.form .pwdInput{
+	margin-bottom: 35px;
+}
+.secondp{
+	position: absolute;
+	right: 0;
+	top: 18px;
+	font-size: 12px;
+	color: #0F91C5;
+}
+.pfirst{
+	position: absolute;
+	top: 44px;
+	left:0;
+	font-size: 12px;
+	color: red;	
+}
+.thirdp{
+	position: absolute;
+	right: 0;
+	top: 80px;
+	font-size: 12px;
+	color: #0F91C5;
+}
+.fourp{
+	position: absolute;
+	left: 0;
+	top:104px;
+	font-size: 12px;
+	color: red;
+}
+.fivep{
+	position: absolute;
+	right: 0;
+	top: 145px;
+	font-size: 12px;
+	color: #0F91C5;
+}
+.sixp{
+	position: absolute;
+	left: 0;
+	top:166px;
+	font-size: 12px;
+	color: red;
+}
+.sevenp{
+	position: absolute;
+	left:200px;
+	top:180px;
+	font-size: 20px;
+	color: red;
+}
+.tenp{
+	position: absolute;
+	left:170px;
+	top:130px;
+	font-size: 20px;
+	color: red;
+}
